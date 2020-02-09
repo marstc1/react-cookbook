@@ -8,6 +8,7 @@ So, create react app is great but it has a bunch of stuff you don't need once yo
 - logo.svg (also referenced in app.js)
 - service-worker.js (also referenced in index.js) - Only keep this if you plan on using offline content
 - index.css (also referenced in index.js)
+- Delete the contents of `<div className='App'>...</div>` in App.js
 - Delete the contents of app.css
 
 ## Update the following
@@ -34,6 +35,7 @@ So, create react app is great but it has a bunch of stuff you don't need once yo
 
 - Change the favicon
 - logo192.png and logo512.png - These are used for app icons on mobile devices.
+- Change the `<meta name="description" content="Web site created using create-react-app" />` tag in index.html
 - Update the [README.md](/README.md)
 
 ## Setup the following
