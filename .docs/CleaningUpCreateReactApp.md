@@ -41,3 +41,16 @@ So, create react app is great but it has a bunch of stuff you don't need once yo
 ## Setup the following
 
 - Git .. checkout [Git.md](./Git.md)
+
+## Install peer dependencies
+
+Run `npm i` and you will likely get a list of warnings informing you about peer dependencies. This is the list I got when I run it in Feb 2020, this is likely to change over time so double check your before running.
+
+| Peer dependency        | Description                                                        | Command                                                            |
+| ---------------------- | ------------------------------------------------------------------ | ------------------------------------------------------------------ |
+| eslint-plugin-flowtype | [Flow](http://flow.org) type linting rules for ESLint              | `npm i eslint-plugin-flowtype@3.13.0 --save-dev`                   |
+| typescript             | Provides support for TypeScript (by Microsoft)                     | `npm i -g typescript@3.2.1` or `npm i typescript@3.2.1 --save-dev` |
+| sass                   | A pure javascript implementation of [Sass](https://sass-lang.com/) | `npm install -g sass` or `npm i sass@^1.3.0 --save-dev`            |
+| fibers                 | Cooperative multitasking for javascript                            | `npm i fibers@>= 3.1.0 --save-dev`                                 |
+| node-sass              | Wrapper around LibSass which is a Sass compiler in C++             | `npm i node-sass --save-dev`                                       |
+| fsevents               | Native access to MacOS FSEvents in Node.js                         | `npm i fsevents@latest -f --save-optional`                         |
