@@ -33,6 +33,7 @@ So, create react app is great but it has a bunch of stuff you don't need once yo
 ```
 
 - Change the favicon
+- logo192.png and logo512.png - These are used for app icons on mobile devices.
 - Update the [README.md](/README.md)
 
 ## Setup the following
