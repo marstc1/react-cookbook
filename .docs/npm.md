@@ -34,3 +34,14 @@ It is basically used for managing dependencies of various server side dependenci
 | `npm start`                      | Starts the web server (it actually does this by running the start script in the react-scripts package which was installed by create-react-app)       |
 | `Ctrl + c`                       | Stop the web server                                                                                                                                  |
 | `npm run build`                  | Creates a production bundle                                                                                                                          |
+
+## Useful packages
+
+| Package          | What is it ...                                                                            |
+| ---------------- | ----------------------------------------------------------------------------------------- |
+| react-router-dom | This enables you to route users to specific pages based on the url entered in the browser |
+
+## Useful Links
+
+- [npmjs.com](https://www.npmjs.com/)
+- [npmtrends.com](https://www.npmtrends.com/)

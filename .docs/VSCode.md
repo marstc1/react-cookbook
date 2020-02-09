@@ -40,3 +40,7 @@
 | Import Cost                              |                                                                                               |
 | GitLens                                  |                                                                                               |
 | Debugger for Chrome                      |                                                                                               |
+
+## Useful Links
+
+- [Visual Studio Marketplace](https://marketplace.visualstudio.com/)
