@@ -19,9 +19,12 @@ The react router is declarative router for react which uses dom bindings.
 ## Recipe (How)
 
 1. Install `react-router-dom`
+
    - Open the terminal `Ctrl + '` and
    - Type `npm i react-router-dom` to install react-router-dom
+
 2. Add Router component to `index.js`
+
    - Open `index.js`
    - Wrap the `<App />` component with the `<Router>` component ...
      ```
@@ -29,10 +32,14 @@ The react router is declarative router for react which uses dom bindings.
          <App />
      </Router>
      ```
+
 3. Import BrowserRouter (Router will be the alias)
+
    - Scroll to the bottom of the import block in your `index.js` file
    - Type `import { BrowserRouter as Router } from "react-router-dom";`
+
 4. Add a Switch and Your Routes to `App.js`
+
    - Open `App.js`
    - _skip the next step if you have [Auto Import](https://marketplace.visualstudio.com/items?itemName=steoates.autoimport)_
    - Import the pages you are routing to (e.g. Home and About), also import `Switch` and `Route` from `react-router-dom`
@@ -47,9 +54,12 @@ The react router is declarative router for react which uses dom bindings.
          );
      }
      ```
+
 5. Fire up the App
+
    - Open the terminal `Ctrl + '`
-   - Type `npmp start`
+   - Type `npm start`
+
 6. Change the URL and see if it works!
    - Type `/` on the end of your `localhost:portNumber` url and hit enter
    - Hopefully you should see the home page
