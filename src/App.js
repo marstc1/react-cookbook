@@ -1,9 +1,11 @@
 import React, { useState, useMemo } from "react";
 import "./App.css";
-import { Switch, Route, BrowserRouter as Router, Link } from "react-router-dom";
+import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
 import { Home } from "./pages/Home";
 import { About } from "./pages/About";
 import { UserContext } from "./context/UserContext";
+import { Navigation } from "./components/Navigation";
+import { Weather } from "./pages/Weather";
 
 function App() {
   const [user, setUser] = useState();
@@ -11,20 +13,12 @@ function App() {
 
   return (
     <Router>
-      <nav>
-        <ul>
-          <li>
-            <Link to='/'>Home</Link>
-          </li>
-          <li>
-            <Link to='/about'>About</Link>
-          </li>
-        </ul>
-      </nav>
+      <Navigation />
       <UserContext.Provider value={value}>
         <Switch>
           <Route exact path='/' component={Home} />
           <Route exact path='/about' component={About} />
+          <Route exact path='/weather' component={Weather} />
         </Switch>
       </UserContext.Provider>
     </Router>
