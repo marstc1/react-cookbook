@@ -2,12 +2,12 @@ import React, { useContext } from "react";
 import { UserContext } from "../context/UserContext";
 
 const About = () => {
-  const { value, setValue } = useContext(UserContext);
+  const { user, setUser } = useContext(UserContext);
 
   return (
     <>
-      <div>Hello {value} from About</div>
-      <button onClick={() => setValue("HEy")}>Change Value</button>
+      <h2>Home</h2>
+      <pre>{JSON.stringify(user, null, 2)}</pre>
     </>
   );
 };

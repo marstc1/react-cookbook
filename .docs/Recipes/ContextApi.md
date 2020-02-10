@@ -147,6 +147,97 @@ The Context API enables components to access data across all levels of the appli
    - Click a `<Link>` to go to the home page
    - You should see the value has also updated on this page too
 
+## Next Level ... Conditionally changing UI based on changed context
+
+1. Create the `Context`, the same as before in the simple recipe
+
+2. Create a `State` value to store `Context`
+
+   - Open `App.js`
+   - Add a call to the `useState` hook inside the function
+   - Set an initial value
+   - Destructure `user` and `setUser` objects out of the object returned from the `useState` hook (these will be used as the initial value by the `Provider`)
+
+3. Use the `useMemo` to create a function so that you only return a value if the state is updated (Performance enhancement)
+
+   - Add a call to the `useMemo` hook below where you have created your `State` value
+   - Set value of a `value` objects with the object returned from the hook
+   - It should look something like this ...
+     `const value = useMemo(() => ({ user, setUser }), [user, setUser]);`
+
+4. Create a `Provider` and link it to the `useMemo` value
+
+   - Wrap the `<Switch>` component with a `<UserContext.Provider>` component
+   - Set the initial `value` prop to the `value` object returned from the `useMemo` hook
+   - It should look something like this ...
+     `<UserContext.Provider value={value}>`
+
+5. Create a `Consumer` in the child components
+
+   - Open `Home.js`
+   - Add a call to the `useContext` hook inside the function
+   - Destructure the `user` and `setUser` objects from the returned
+   - You can now use these object in the component like so ...
+
+     ```
+      <div>
+        <h2>Home</h2>
+        <pre>{JSON.stringify(user, null, 2)}</pre>
+        {user ? (
+          <button
+            onClick={async () => {
+              setUser(null);
+            }}>
+            Log out
+          </button>
+        ) : (
+          <button
+            onClick={async () => {
+              const user = await login();
+              setUser(user);
+            }}>
+            Login
+          </button>
+        )}
+      </div>
+     ```
+
+   - Notice the button uses a `login()` function so we need to make a mock for that in the next step
+
+6. Create a mock Login function
+
+   - Create a "utils" folder
+   - Create a "Login.js" file
+   - Update it so that it contains the following
+     ```
+         export const login = async () => {
+             return {
+                 id: 4,
+                 username: "Bob",
+                 email: "bob@bob.com"
+             };
+         };
+     ```
+
+7. Update the `About` consumer
+
+   - Open `About.js`
+   - Update the `useContext` hook
+   - Update the `return` statement to use `<pre>{JSON.stringify(user, null, 2)}</pre>`
+
+8. Fire up the App
+
+   - Open the terminal `Ctrl + '`
+   - Type `npm start`
+
+9. Click the button on the about page, click a link to change page and see if it works!
+
+   - Navigate to the homepage
+   - Hopefully you should see the "Login" button
+   - Click it and you should notice the value change
+   - Click a `<Link>` to go to the about page
+   - You should see the value has also updated on this page too
+
 ## Things to note
 
 - The provider component has to wrap the parent component containing the child component that will ultimately consume the data
