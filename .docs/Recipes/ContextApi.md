@@ -2,7 +2,7 @@
 
 ## What is it?
 
-The Context API is a component structure provided by the React framework, which enables us to share specific forms of data across all levels of the application. It's aimed at solving the problem of prop drilling (passing props down through multiple levels of components). It is often considered a simpler alternative to Redux as it has quite a bit less of an overhead and boiler plate to get going.
+The Context API enables components to access data across all levels of the application. It's aimed at solving the problem of prop drilling (passing props down through multiple levels of components). It is often considered a simpler alternative to Redux as it has quite a bit less of an overhead and boiler plate to get going.
 
 ## When to use this recipe
 
@@ -93,6 +93,61 @@ The Context API is a component structure provided by the React framework, which 
    - Type `/about` on the end of your `localhost:portNumber` url and hit enter
    - Hopefully you should see the about page with the value coming from the context
 
+## Slightly More Complex ... Changing State
+
+1. Create the `Context`, the same as before in the simple recipe
+
+2. Create a `State` value to store `Context`
+
+   - Open `App.js`
+   - Add a call to the `useState` hook inside the function
+   - Set an initial value
+   - Destructure `value` and `setValue` objects out of the object returned from the `useState` hook (these will be used as the initial value by the `Provider`)
+
+3. Create a `Provider` and link it to the `State` value
+
+   - Wrap the `<Switch>` component with a `<UserContext.Provider>` component
+   - Set the initial `value` prop to contain the `value` and `setValue` objects
+
+4. Create a `Consumer` in the child components
+
+   - Open `About.js`
+   - Add a call to the `useContext` hook inside the function
+   - Destructure the `value` and `setValue` objects from the returned
+   - You can now use these object in the component like so ...
+
+     ```
+         import React, { useContext } from "react";
+         import { UserContext } from "../context/UserContext";
+
+         const About = () => {
+            const { value, setValue } = useContext(UserContext);
+
+             return (
+                 <>
+                     <div>{value}</div>
+                     <button onClick={() => setValue("Hey, from the context!")}>Change Value</button>
+                 </>
+             );
+         };
+
+         export { About };
+     ```
+
+5. Fire up the App
+
+   - Open the terminal `Ctrl + '`
+   - Type `npm start`
+
+6. Click the button on the about page, click a link to change page and see if it works!
+
+   - Type `/about` on the end of your `localhost:portNumber` url and hit enter
+   - Hopefully you should see the button on the about page
+   - Click it and you should notice the value change
+   - Click a `<Link>` to go to the home page
+   - You should see the value has also updated on this page too
+
 ## Things to note
 
 - The provider component has to wrap the parent component containing the child component that will ultimately consume the data
+- Context information will be reset if you refresh the browser or navigate to a route without using a `<Link>` component ... unless you cater for it, see another recipe coming soon :)
